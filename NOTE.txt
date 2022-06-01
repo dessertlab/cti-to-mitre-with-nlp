@@ -11,3 +11,5 @@
 - Per adesso ho caricato i file pesanti (come modelli o cti), ma eventualmente si potrebbero mettere anche solo i riferimenti di dove recuperarli?
 
 - Caricati i file dei colab. I modelli sono un po' pesanti(magari si possono aggiungere). Nei notebook probabilmente si deve aggiungere l'installazione di CUDA all'inizio (avevo l'installer scaricato ma anch'esso è pesante da caricare su git). Per aggiungere il comando vedi -> https://colab.research.google.com/github/ShimaaElabd/CUDA-GPU-Contrast-Enhancement/blob/master/CUDA_GPU.ipynb#scrollTo=h7lbKJvm-SLG 
+
+- Per caricare file più grandi ho usato: https://git-lfs.github.com 
