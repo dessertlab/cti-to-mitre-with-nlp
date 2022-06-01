@@ -1,7 +1,11 @@
 ##Note sul caricamento dei file di progetto
 
-- Nella cartella build_dataset è presente lo script per generare il nostro  dataset a partire dai cti di mitre e capec (P.S. nel correggere lo script mi sono resa conto che non venivano aggiunte le frasi di capec. Corretto ciò il dataset risulta di 13000 samples e il file dataset_new.csv nella directory è il dataset con questa aggiunta)
+- Nella cartella build_dataset è presente lo script per generare il nostro  dataset a partire dai cti di mitre e capec (P.S. nel correggere lo script mi sono resa conto che non venivano aggiunte le frasi di capec. Corretto ciò, il dataset risulta di 13000 samples e il file dataset_new.csv nella directory è il dataset con questa aggiunta)
 
-- Nella cartella dataset si trovano invece i file relativi agli esperimenti fatti per il paper e per adesso i modelli che man mano sto aggiungendo puntano a quella cartella per prendere in input il file del dataset.
+- Nella cartella dataset si trovano invece i file relativi agli esperimenti fatti per il paper e per adesso i -clfmodelli che man mano sto aggiungendo puntano a quella cartella per prendere in input il file del dataset 'vecchio'.
+
+- Ho notato forse una discordanza dei parametri in conv_clf (da verificare)
 
 - Nella cartella src sono riportati i vari script dei classificatori, una cartella utils con degli script aggiuntivi e i file per l'analisi documentale. L'analisi documentale per i modelli di DL è condotta nello stesso script in quanto non sono riuscita a salvare tali modelli e ricaricarli in  uno script differente come per quelli di ML e Bert. 
+
+- Per adesso ho caricato i file pesanti (come modelli o cti), ma eventualmente si potrebbero mettere anche solo i riferimenti di dove recuperarli?

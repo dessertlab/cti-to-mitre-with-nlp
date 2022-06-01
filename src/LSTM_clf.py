@@ -140,7 +140,7 @@ def analyze_all_doc(file_path, tecs_vec):
         lines += f.readlines()
 
     ## Apply regex 
-    regex_list = load_regex("regex.yml")
+    regex_list = load_regex("utils/regex.yml")
 
     text = combine_text(lines)
     text = re.sub('(%(\w+)%(\/[^\s]+))', repl, text)
