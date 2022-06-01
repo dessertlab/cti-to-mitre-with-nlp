@@ -43,26 +43,3 @@ class CSVOutput:
         self._save_classifier_f1(path)
         with open(path+'/'+self.document_title+'.csv', 'a') as f:
             self._save_classifier_outputs(f)
-
-
-
-result1 = Classifier_results('MLP',
-                            20,
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8],
-                            [10, 15, 2, 3, 4, 0, 0, 0, 0])
-result2 = Classifier_results('SVM',
-                            20,
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8], 
-                            [10, 15, 2, 3, 4, 5, 6, 7, 8],
-                            [20, 15, 2, 3, 4, 0, 0, 0, 0])
-
-output = CSVOutput('FIN6', [result1, result2])
-
-output.write_to_file('.')
