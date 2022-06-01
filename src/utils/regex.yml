@@ -1,0 +1,83 @@
+- name: ipv4
+  code: ip_address
+  regex: |
+    (?:(?:1\d\d|2[0-5][0-5]|2[0-4]\d|0?[1-9]\d|0?0?\d)\.){3}(?:1\d\d|2[0-5][0-5]|2[0-4]\d|0?[1-9]\d|0?0?\d)
+
+- name: email
+  code: email_address
+  regex: |
+    [\[\]a-zA-Z0-9_.+-]+@[\[\]a-zA-Z0-9-]+\.[\[\]a-zA-Z0-9-.]+
+
+# - name: temp_dir
+#   code: temp_dir
+#   regex: ((%\w*%)(\/[^\s]+))
+
+# - name: apt
+#   code: group
+#   regex: |
+#     APT\w+
+
+# - name: domain
+#   code: domain_name
+#   regex: |
+#     ([a-z0-9]+(-[a-z0-9]+)*\[?\.\]?)+[a-z]{2,}
+
+# - name: fqdn
+#   code: fully_qualified_domain_name
+#   regex: |
+#     (?:[a-z0-9]+(?:-[a-z0-9]+)*\[?\.\]?)+[a-z]{2,}
+
+# - name: md5
+#   code: md5_hash
+#   regex: |
+#     (?:[a-fA-F0-9]){32}
+
+- name: regkey
+  code: registry_key
+  regex: |
+    (?:HKEY_CURRENT_USER\\|SOFTWARE\\|HKEY_LOCAL_MACHINE\\|HKLM\\|HKCR\\|HKCU\\)(?:[A-Z][a-zA-Z]*[\ ]?\\*)*
+
+- name: exe
+  code: file_exe
+  regex: |
+    ([\w]*\.exe)
+
+- name: filepath
+  code: filepath_windows
+  regex: |
+    (C:\\.*?\.[\w:]+)
+
+- name: path
+  code: generic_path
+  regex: |
+    (~?(\/\.?[^\s]+ ?)+)
+
+- name: filepath
+  code: filepath_linux
+  regex: |
+    (\/.*?\.[\w:]+[^\s]+)
+
+- name: CVE
+  code: CVE_numbers
+  regex: |
+    CVE-[12][0-9]{3}-[0-9]+
+
+# - name: MAC
+#   code: MAC_address
+#   regex: |
+#     (?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2})
+
+# - name: sha1
+#   code: sha1_hash
+#   regex: |
+#     [a-fA-F0-9]{40}
+
+# - name: sha256
+#   code: sha256_hash
+#   regex: |
+#     [A-Fa-f0-9]{64}
+
+# - name: sha512
+#   code: sha512_hash
+#   regex: |
+#     [a-fA-f0-9]{128}

@@ -1,0 +1,293 @@
+COUNT ONE
+           (Conspiracy to Commit Computer Intrusions)
+
+     The Grand Jury charges:
+
+                          OVERVIEW
+
+     I.  At all times relevant to this Indictment, ZHU HUA
+
+ (*ip), a/k/a "Afwar," a/k/a "CVNX," a/k/a "Alayos," a/k/a
+
+
+"Godkiller," and ZHANG SHILONG      a/k/a "Baobeilong," 
+
+
+a/k/a "Zhang Jianguo," a/k/a "Atreexp," the defendants, both of 
+
+whom were nationals of the People's Republic of China ("China"),
+
+were members of a hacking group operating in China known within 
+
+the cyber security community as Advanced Persistent Threat 10
+ 
+ (the "APT10 Group")', or alternatively as "Red Apollo," "CVNX," 
+
+"Stone Panda," "MenuPass," and "POTASSIUM."
+
+   2. From at least in or about 2006 up to and including in 
+
+or about 2018, members of the APT10 Group, including ZHU HUA, 
+
+a/k/a "Afwar," a/k/a "CVNX," a/k/a "Alayos," a/k/a "Godkiller," 
+
+and ZHANG SHILONG, a/k/a "Baobeilong," a/k/a "Zhang Jianguo," 
+
+a/k/a "Atreexp," the defendants, conducted extensive campaigns 
+
+of global intrusions into computer systems. The defendants 
+
+worked for Huaying Haitai Science and Technology Development 
+
+Company ("Huaying Haitai") in Tianjin, China, and acted in 
+
+association with the Chinese Ministry of State Security's 
+
+Tianjin State Security Bureau.
+
+   3. While the APT10 Group employed similar hacking tools 
+
+and techniques over the course of its campaigns,. the APT10 
+
+Group's hacking operations evolved over time, demonstrating 
+
+advances in overcoming network defenses, victim selection, and 
+
+tradecraft. Moreover, the APT10 Group utilized some of the same 
+
+online facilities to initiate, facilitate, and execute its
+
+
+
+1 APT is a designation given in the cyber security community to 
+an individual or group that uses sophisticated techniques to 
+exploit vulnerabilities in victim computer systems and employs 
+an external command and control system to target a specific 
+entity or range of entities and maintain a persistent presence 
+on its targets' networks.
+
+
+                  2
+ 
+campaigns during the conspiracy, thereby reflecting the APT10 
+Group's continuous and unrelenting effort, from in or about 2006 
+up to and including in or about 2018, to steal technologies and 
+other information of value to the conspiracy. For example, as 
+detailed herein, the APT10 Group was engaged in at least two 
+computer intrusion campaigns during the relevant time period, 
+both aiming to steal, among other data, intellectual property 
+and confidential business or technological information:
+      a. First, beginning in or about 2006, members of the 
+APT10 Group, including ZHU HUA, a/k/a "Afwar," a/k/a "CVNX," 
+a/k/a "Alayos," a/k/a "Godkiller," and ZHANG SHILONG, a/k/a 
+"Baobeilong," a/k/a "Zhang Jianguo," a/k/a "Atreexp," the 
+defendants, engaged in an intrusion campaign to obtain 
+unauthorized access to the computers and computer networks of 
+commercial and defense technology companies and U.S. Government 
+agencies in order to steal information and data concerning a 
+number of technologies (the "Technology Theft Campaign"). 
+Specifically, the APT10 Group obtained unauthorized access to 
+the computers of more than 45 such entities based in at least 12 
+states, including Arizona, California, Connecticut, Florida, 
+Maryland, New York, Ohio, Pennsylvania, Texas, Utah, Virginia, 
+and Wisconsin. Through the Technology Theft Campaign, the APT10
+
+                   3
+ 
+Group stole hundreds of gigabytes of sensitive data and targeted 
+the computers of victim companies involved in a diverse array of 
+commercial activity, industries, and technologies, including 
+aviation, space and satellite technology, manufacturing 
+technology, pharmaceutical technology, oil and gas exploration 
+and production technology, communications technology, computer 
+processor technology, and maritime technology.
+     b. Second, beginning at least in or about 2014,
+members of the APT10 Group, including ZHU and ZHANG, engaged in 
+an intrusion campaign to obtain unauthorized access to the 
+computers and computer networks of managed service providers 
+("MSPs") for businesses and governments around the world (the 
+"MSP Theft Campaign"). MSPs are companies that remotely manage 
+their clients' information technology infrastructure, including 
+by providing computer servers, storage, networking, consulting 
+and information technology support. The APT10 Group targeted 
+MSPs in order to leverage the MSPs' networks to gain 
+unauthorized access to the computers and computer networks of 
+the MSPs' clients and steal, among other data, intellectual 
+property and confidential business data on a global scale. For 
+example, through the MSP Theft Campaign, the APT10 Group 
+obtained unauthorized access to the computers of an MSP that had
+
+                4
+ 
+offices in the Southern District of New York and compromised the 
+data of that MSP and certain of its clients located in at least 
+12 countries, including Brazil, Canada, Finland, France,
+Germany, India, Japan, Sweden, Switzerland, the United Arab 
+Emirates, the United Kingdom, and the United States. Those 
+compromised clients included companies that were involved in a 
+diverse array of commercial activity, industries, and 
+technologies, including banking and finance, telecommunications 
+and consumer electronics, medical equipment, packaging, 
+manufacturing, consulting, healthcare, biotechnology, 
+automotive, oil and gas exploration, and mining.
+     c. In addition, the APT10 Group compromised more
+than 40 computers in order to steal confidential data from those 
+systems belonging to the United States Department of the Navy 
+(the "Navy"), including the personally identifiable information 
+of more than 100,000 Navy personnel.
+        MEANS AND METHODS OF THE CONSPIRACY
+          The Technology Theft Campaign 
+  4. Members of the APT10 Group, including ZHU HUA, a/k/a
+"Afwar," a/k/a "CVNX," a/k/a "Alayos," a/k/a "Godkiller," and 
+ZHANG SHILONG, a/k/a "Baobeilong," a/k/a "Zhang Jianguo," a/k/a 
+"Atreexp," the defendants, engaged in the following stages of
+
+                  5
+ 
+activity to orchestrate and manage the computer intrusions 
+committed during the Technology Theft Campaign, which are 
+generally summarized below:
+      a. First, members of the APT10 Group used a
+technique known as "spear phishing" to introduce malicious 
+software ("malware") onto targeted computers. Members of the 
+conspiracy sent customized emails to intended targets with 
+attached documents and files that would surreptitiously install 
+malware if opened. In order to trick the recipients of the 
+spear phishing emails into opening the attachments of the emails 
+that installed the malware, the emails purported to be sent from 
+legitimate email addresses, when in fact the emails were sent by 
+members of the conspiracy. In addition, the content of the 
+email messages and the filenames of the attachments appeared to 
+be legitimate and contain information of interest to the 
+recipients. For example, one spear phishing email purported to 
+originate from an email address associated with a victim company 
+("Victim-1") involved in communications technology, when it 
+actually originated from a different account, which was 
+unaffiliated with Victim-1 and logged in from a computer
+
+
+
+                   6
+ 
+assigned an Internet protocol ("IP") address2 located in Tianjin, 
+
+China under the control of the APT10 Group. That email, which 
+
+was sent to employees of another victim company ("Victim-2") 
+
+involved in helicopter manufacturing, had the subject line "C17 
+
+Antenna problems," a malicious Microsoft Word attachment named 
+
+"12-204 Side Load Testing.doc," and stated the following:
+
+"Please see the attached the files." When the attachment named 
+
+"12-204 Side Load Testing.doc" was opened, malware was installed 
+
+on the computer of Victim-2. By using these spear phishing 
+
+methods, the conspirators intended to and did cause the 
+
+recipients of the emails to open the attachments without 
+
+arousing suspicion as to the source of the email or its 
+
+attachments.
+
+     b. Second, once a recipient of a spear phishing
+
+email opened the attachment to the email, the attachment 
+
+installed malware on the victim's computer. The malware 
+
+typically included customized variants of a remote access Trojan 
+
+("RAT") including one known as "Poison Ivy" and keystroke 
+
+loggers, which are programs that surreptitiously recorded
+
+
+2 Each electronic device or computer resource connected to the 
+Internet must be assigned a unique IP address so that 
+communications from or directed to that electronic device are 
+routed properly.
+
+
+
+                7
+ 
+computer keystrokes to steal usernames and passwords as the user 
+of the victim systems typed them. The malware was programmed to 
+automatically communicate with domains that were assigned IP 
+addresses of computers under the control of members of the APT10 
+Group, allowing them to maintain visibility and persistent 
+remote access to the compromised computers over the Internet.
+In particular, the APT10 Group used dynamic Domain Name System 
+("DNS") service providers to host their malicious domains, 
+including a provider located in the Southern District of New 
+York, which allowed the APT10 Group to route the pre-programmed 
+malicious domains in their malware to different IP addresses of 
+computers under their control. This mode of operation enabled 
+the APT10 Group to frequently and rapidly change the IP 
+addresses associated with their malicious domains without having 
+to adjust the malware or domains already on a victim's 
+computers, providing the APT10 Group with operational
+flexibility and persistence, as well as helping them avoid 
+detection by bypassing network security filters that might block 
+identified malicious IP addresses.
+    c. Third, after the malware was successfully
+installed, the APT10 Group downloaded additional malware and
+
+
+               8
+ 
+tools to compromised computer systems in order to further 
+compromise the victim's computers.
+        d. Fourth, after the APT10 Group had gained
+unauthorized access to a victim's computers and identified data 
+of interest on those computers, the APT10 Group collected the 
+relevant files and other information from the compromised 
+computers and exfiltrated the stolen files and information in 
+encrypted archives to computers under their control.
+    5. Over the course of the Technology Theft Campaign, the 
+defendants and their coconspirators successfully obtained 
+unauthorized access to at least approximately 90 computers 
+belonging to, among others, commercial and defense technology 
+companies and U.S. Government agencies located in at least 12 
+states, and stole hundreds of gigabytes of sensitive data and 
+information from their computer systems, including from at least 
+the following victims:
+       a.  seven companies involved in aviation, space 
+and/or satellite technology;
+       b.  three companies involved in communications 
+technology;
+
+
+
+                        9
+       c.  three companies involved in manufacturing 
+advanced electronic systems and/or laboratory analytical 
+instruments;
+       d.  a company involved in maritime technology;
+       e.  a company involved in oil and gas drilling, 
+production, and processing;
+       f.  The National Aeronautics and Space Administration 
+("NASA") Goddard Space Center; and
+       g.  The NASA Jet Propulsion Laboratory.
+    6. In addition to the above victims, the defendants and 
+their coconspirators successfully obtained unauthorized access 
+to computers belonging to at least 25 other technology-related 
+companies involved in, among other things, industrial factory 
+automation, radar technology, oil exploration, information 
+technology services, pharmaceutical manufacturing, and computer 
+processor technology, as well as the U.S. Department of Energy's 
+Lawrence Berkeley National Laboratory.
+               The MSP Theft Campaign 
+    7. In order to conduct the MSP Theft Campaign, members of 
+the APT10 Group, including ZHU HUA, a/k/a "Afwar," a/k/a "CVNX," 
+a/k/a "Alayos," a/k/a "Godkiller," and ZHANG SHILONG, a/k/a 
+"Baobeilong," a/k/a "Zhang Jianguo," a/k/a "Atreexp," the
+
+                      10
+
