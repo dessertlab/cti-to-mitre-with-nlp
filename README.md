@@ -1,6 +1,17 @@
 # cti-to-mitre-with-nlp
 Replication package for the paper "Automatic Mapping of Unstructured Cyber Threat Intelligence: An Experimental Study"
 
+- In order to upload bigger files, such as mitre KB, https://git-lfs.github.com was used, so you have to install the LFS extension:
+	mac: brew install git-lfs
+	
+	Download and install the Git command line extension. Once downloaded and installed, set up Git LFS for your user 
+	account by running:
+	git lfs install
+  
+  Then you can clone the repo
+  
+  In case of issues, check out -> https://github.com/git-lfs/git-lfs/wiki/Tutorial#pulling-and-cloning
+
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
