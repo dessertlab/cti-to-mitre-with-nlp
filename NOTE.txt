@@ -2,7 +2,32 @@
 
 - Nella cartella build_dataset è presente lo script per generare il nostro  dataset a partire dai cti di mitre e capec (P.S. nel correggere lo script mi sono resa conto che non venivano aggiunte le frasi di capec. Corretto ciò, il dataset risulta di 13000 samples e il file dataset_new.csv nella directory è il dataset con questa aggiunta)
 
-- Nella cartella dataset si trovano invece i file relativi agli esperimenti fatti per il paper e per adesso i -clfmodelli che man mano sto aggiungendo puntano a quella cartella per prendere in input il file del dataset 'vecchio'.
+- Nella cartella data si trovano invece i file relativi agli esperimenti fatti per il paper e per adesso gli script per le analisi (training e test) che man mano sto aggiungendo puntano a quella cartella per prendere in input il file del dataset 'vecchio'.
+
+-Gli script delle analisi svolte si trovano nella dir src, e sono organizzati come segue: 
+	-ml_classifier.py: lo script esegue training/testing sul dataset.csv (il file può essere cambiato nel codice)
+	adottando tutti i modelli di ML tradizionale studiati. Alla fine vengono salvati i modelli trainati per poter svolgere
+	in un secondo momento l'analisi documentale (al momento commentato, i file dei modelli trainati .sav si trovano nella 	
+	dir ml_models). 
+
+	-document_analysis.py: conduce l'analisi documentale caricando i modelli generati dallo script precedente (salvati 
+	nella dir ml_models). Genera in output due file: un file '.csv' in cui sono riportati vari dati in forma tabellare 
+	(utilizzato per osservare come variano certi valori in base alle soglie, forse non ci serve più), e un file '.txt' in 
+	cui su ogni riga è riportato il classificatore e il valore calcolato della F-measure per ciascuna soglia. Questo 
+	servirà per creare il grafico a barre alla fine. 
+
+	-LSTM_clf.py: lo script esegue training/testing sul dataset.csv (il file può essere cambiato nel codice) adottando il 
+	modello LTSM, alla fine stampa a video i risultati del testing e poi fa partire l'analisi sui documenti che aggiunge 
+	informazione ai file già generati da document_analysis.py aggiungendo i numeri del classificatore corrente. 
+
+	-conv_clf.py: esegue le analisi sul modello CNN ed è strutturato come lo script LSTM_clf.py	
+
+	-pretrained_LSTM.py: esegue le analisi sul modello LSTM pretrainato con il Word2vec per cybersecurity ed è strutturato 
+	come lo script LSTM_clf.py. Questo script carica il modello Word2vec pretrainato dalla dir model. 
+
+	-bar_plot_documents.py: sfrutta i file NOME_DOCUMENTO_f1.txt generati dall'analisi documentale e presenti nelle 	
+	directory dei diversi APT per generare i grafici a barre e salvarli come output nelle ripettivi cartelle (es. analisi 
+	relativa alle risorse di FIN6 si troveranno sotto FIN6)
 
 - Ho notato forse una discordanza dei parametri in conv_clf (da verificare)
 
