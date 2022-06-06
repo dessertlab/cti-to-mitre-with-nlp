@@ -1,5 +1,14 @@
 ##Note sul caricamento dei file di progetto
 
+-Per poter rieseuguire tutti i file creare per prima cosa il virtual enviroment python:
+	virtualenv venv
+Dopoidichè attivare:
+	source venv/bin/activate
+Infine installare le dipendenze:
+	pip install -r requirements.txt
+Per chiudere il virtual env:
+	deactivate
+
 - Nella cartella build_dataset è presente lo script per generare il nostro  dataset a partire dai cti di mitre e capec (P.S. nel correggere lo script mi sono resa conto che non venivano aggiunte le frasi di capec. Corretto ciò, il dataset risulta di 13000 samples e il file dataset_new.csv nella directory è il dataset con questa aggiunta)
 
 - Nella cartella data si trovano invece i file relativi agli esperimenti fatti per il paper e per adesso gli script per le analisi (training e test) che man mano sto aggiungendo puntano a quella cartella per prendere in input il file del dataset 'vecchio'.
