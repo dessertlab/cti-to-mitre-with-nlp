@@ -1,5 +1,12 @@
 ##Note sul caricamento dei file di progetto
 
+- Per caricare file più grandi ho usato: https://git-lfs.github.com, per questo motivo bisogna installare l'estensione LFS:
+	mac: brew install git-lfs
+	
+	Download and install the Git command line extension. Once downloaded and installed, set up Git LFS for your user 
+	account by running:
+	git lfs install
+
 -Per poter rieseuguire tutti i file creare per prima cosa il virtual enviroment python:
 	virtualenv venv
 Dopoidichè attivare:
@@ -45,5 +52,3 @@ Per chiudere il virtual env:
 - Per adesso ho caricato i file pesanti (come modelli o cti), ma eventualmente si potrebbero mettere anche solo i riferimenti di dove recuperarli?
 
 - Caricati i file dei colab. I modelli sono un po' pesanti(magari si possono aggiungere). Nei notebook probabilmente si deve aggiungere l'installazione di CUDA all'inizio (avevo l'installer scaricato ma anch'esso è pesante da caricare su git). Per aggiungere il comando vedi -> https://colab.research.google.com/github/ShimaaElabd/CUDA-GPU-Contrast-Enhancement/blob/master/CUDA_GPU.ipynb#scrollTo=h7lbKJvm-SLG 
-
-- Per caricare file più grandi ho usato: https://git-lfs.github.com 
