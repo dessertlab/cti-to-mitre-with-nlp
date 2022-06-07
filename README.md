@@ -11,7 +11,31 @@ Replication package for the paper "Automatic Mapping of Unstructured Cyber Threa
   Then you can clone the repo
   
   In case of issues, check out -> https://github.com/git-lfs/git-lfs/wiki/Tutorial#pulling-and-cloning
+  
+- If you get an error like this:
 
+```
+  Resource punkt not found.
+
+  Please use the NLTK Downloader to obtain the resource:
+
+  >>> import nltk
+
+  >>> nltk.download('punkt')
+
+  For more information see: https://www.nltk.org/data.html
+
+  Attempted to load tokenizers/punkt/PY3/english.pickle
+```
+  
+  Try  
+  ```
+  python -m nltk.downloader <RESOURCE_NAME>
+  ```
+  es.  
+  ```
+  python -m nltk.downloader punkt
+  ```
 
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
