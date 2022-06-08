@@ -45,7 +45,7 @@ In the `build_dataset` directory you can find the script to automatically genera
 
 In the `data` directory you can find the dataset.csv file. It contains the dataset used for the training and evaluation of our classification models. In the `other_datasets` sub-directory there are additional datasets used for validate our preliminary results. 
 
-Finally, in the `src` dataset you can find all the scripts: the ones used for the training/testing of classification models and the ones employed for the document analysis. In the `src/FIN6`, `src/WizardSpider`, and `src/MenuPass` sub-directories you can find the resources chosen and employed in the document analysis. 
+Finally, in the `src` directory you can find all the scripts: the ones used for the training/testing of our classification models and the ones employed for the document analysis. In the `src/FIN6`, `src/WizardSpider`, and `src/MenuPass` sub-directories you can find the resources chosen and employed in the document analysis. 
 
 # Installation steps and troubleshooting 
 - In order to upload bigger files, such as mitre KB, https://git-lfs.github.com was used, so you have to install the LFS extension:
