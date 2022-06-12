@@ -6,11 +6,11 @@ from sklearn.model_selection import train_test_split
 from keras.preprocessing.text import Tokenizer
 from keras.utils.data_utils import pad_sequences
 
-from keras.models import Sequential
+from keras.models import Sequential, load_model
 from keras.layers import Dense, Embedding
 from keras.callbacks import EarlyStopping
 from sklearn.preprocessing import LabelEncoder
-from keras.wrappers.scikit_learn import KerasClassifier
+from scikeras.wrappers import KerasClassifier
 
 from keras.layers import Dense, GlobalMaxPooling1D
 from keras.layers import Conv1D, Embedding
@@ -23,6 +23,8 @@ from utils.filter_data import *
 
 from nltk.tokenize import sent_tokenize
 from utils.csv_output import Classifier_results, CSVOutput
+
+import pickle
 
 def f_measure(recall, precision):
     if recall != 0 and precision != 0:
@@ -57,6 +59,21 @@ tokenizer.fit_on_texts(data_df['sentence'])
 vocab = tokenizer.word_index
 vocab_size = tokenizer.word_index
 print('Found %s unique tokens.' % len(vocab_size))
+
+import os 
+path = './cnn_model'
+try:
+    os.mkdir(path)
+except OSError as error:
+    print(error)  
+
+#Saving the tokenizer 
+with open('cnn_model/tokenizer.pickle', 'wb') as handle:
+    pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+# # loading
+# with open('tokenizer.pickle', 'rb') as handle:
+#     tokenizer = pickle.load(handle)
 
 #Transform sentences
 X = tokenizer.texts_to_sequences(data_df['sentence'].values)
@@ -108,13 +125,38 @@ def create_model(): #66,9% con stop words
     print(model.summary())
     return model 
 
-nn_model = KerasClassifier(build_fn=create_model, epochs=epochs, batch_size=batch_size, validation_split=0.2,
+nn_model = KerasClassifier(model=create_model, epochs=1, batch_size=batch_size, validation_split=0.2, loss="categorical_crossentropy", 
                     callbacks=[EarlyStopping(monitor='val_loss', patience=3, min_delta=0.0001)])
 nn_model.fit(X_train_vec,Y_train_vec)
+
+#SAVE THE MODEL
+nn_model.model_.save('cnn_model/saved_model')
+
+# Uncomment save the model to disk
+filename = 'cnn_model/saved_model' + '.sav'
+pickle.dump(nn_model, open(filename, 'wb'))
 
 Y_pred = nn_model.predict(X_test_vec)
 
 predict_proba_scores = nn_model.predict_proba(X_test_vec)
+
+sample_weights = compute_sample_weight(class_weight='balanced', y=Y_test_vec)
+
+labels = unique_labels(Y)
+print(sample_weights.shape)
+
+precision, recall, fscore, support = precision_recall_fscore_support(Y_test_vec, Y_pred, average='weighted')
+topk = top_k_accuracy_score(Y_test_vec, predict_proba_scores, k=3, labels=labels, sample_weight=sample_weights)
+
+# get the metrics
+print("Precision: " + str(precision) + " Recall: " + str(recall) + " F-Score: " + str(fscore) + " AC@3: " + str(topk) + "\n")
+
+
+classifier = pickle.load(open(filename, 'rb'))
+
+Y_pred = classifier.predict(X_test_vec)
+
+predict_proba_scores = classifier.predict_proba(X_test_vec)
 
 sample_weights = compute_sample_weight(class_weight='balanced', y=Y_test_vec)
 
@@ -288,40 +330,40 @@ def analyze_all_doc(file_path, tecs_vec):
 
 from document_data import *
 
-fin6_intel_results = analyze_all_doc(fin6_files[2], 
-                            fin6_tecs_intel)
-fin6_intel_output = CSVOutput('FIN6/FIN6_intelligence_summary', [fin6_intel_results])
-fin6_intel_output.append_to_file('.')
+# fin6_intel_results = analyze_all_doc(fin6_files[2], 
+#                             fin6_tecs_intel)
+# fin6_intel_output = CSVOutput('FIN6/FIN6_intelligence_summary', [fin6_intel_results])
+# fin6_intel_output.append_to_file('.')
 
-fin6_ref_1_results = analyze_all_doc(fin6_files[0], 
-                            fin6_tec_1)
-fin6_ref_1_output = CSVOutput('FIN6/FIN6_ref_1', [fin6_ref_1_results])
-fin6_ref_1_output.append_to_file('.')
+# fin6_ref_1_results = analyze_all_doc(fin6_files[0], 
+#                             fin6_tec_1)
+# fin6_ref_1_output = CSVOutput('FIN6/FIN6_ref_1', [fin6_ref_1_results])
+# fin6_ref_1_output.append_to_file('.')
 
-fin6_ref_2_results = analyze_all_doc(fin6_files[1], 
-                            fin6_tec_2)
-fin6_ref_2_output = CSVOutput('FIN6/FIN6_ref_2', [fin6_ref_2_results])
-fin6_ref_2_output.append_to_file('.')
+# fin6_ref_2_results = analyze_all_doc(fin6_files[1], 
+#                             fin6_tec_2)
+# fin6_ref_2_output = CSVOutput('FIN6/FIN6_ref_2', [fin6_ref_2_results])
+# fin6_ref_2_output.append_to_file('.')
 
-menuPass_ref_8_results = analyze_all_doc(menuPass_files[1], 
-                            menuPass_tec_8)
-menuPass_ref_8_output = CSVOutput('MenuPass/MenuPass_ref_8', [menuPass_ref_8_results])
-menuPass_ref_8_output.append_to_file('.')
+# menuPass_ref_8_results = analyze_all_doc(menuPass_files[1], 
+#                             menuPass_tec_8)
+# menuPass_ref_8_output = CSVOutput('MenuPass/MenuPass_ref_8', [menuPass_ref_8_results])
+# menuPass_ref_8_output.append_to_file('.')
 
-menuPass_ref_2_results = analyze_all_doc(menuPass_files[0], 
-                            menuPass_tec_2)
-menuPass_ref_2_output = CSVOutput('MenuPass/MenuPass_ref_2', [menuPass_ref_2_results])
-menuPass_ref_2_output.append_to_file('.')
+# menuPass_ref_2_results = analyze_all_doc(menuPass_files[0], 
+#                             menuPass_tec_2)
+# menuPass_ref_2_output = CSVOutput('MenuPass/MenuPass_ref_2', [menuPass_ref_2_results])
+# menuPass_ref_2_output.append_to_file('.')
 
-wizardSpider_ref_7_results = analyze_all_doc(wizardSpider_files[0], 
-                            wizardSpider_tec_7)
-wizardSpider_ref_7_output = CSVOutput('WizardSpider/WizardSpider_ref_7', [wizardSpider_ref_7_results])
-wizardSpider_ref_7_output.append_to_file('.')
+# wizardSpider_ref_7_results = analyze_all_doc(wizardSpider_files[0], 
+#                             wizardSpider_tec_7)
+# wizardSpider_ref_7_output = CSVOutput('WizardSpider/WizardSpider_ref_7', [wizardSpider_ref_7_results])
+# wizardSpider_ref_7_output.append_to_file('.')
 
-wizardSpider_ref_2_results = analyze_all_doc(wizardSpider_files[1], 
-                            wizardSpider_tec_2)
-wizardSpider_ref_2_output = CSVOutput('WizardSpider/WizardSpider_ref_2', [wizardSpider_ref_2_results])
-wizardSpider_ref_2_output.append_to_file('.')
+# wizardSpider_ref_2_results = analyze_all_doc(wizardSpider_files[1], 
+#                             wizardSpider_tec_2)
+# wizardSpider_ref_2_output = CSVOutput('WizardSpider/WizardSpider_ref_2', [wizardSpider_ref_2_results])
+# wizardSpider_ref_2_output.append_to_file('.')
 
 
 
