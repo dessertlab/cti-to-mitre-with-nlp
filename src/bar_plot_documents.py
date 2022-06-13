@@ -65,7 +65,7 @@ def main():
     for doc in documents:
         classifiers, classifiers_f1 = read_f1s_from_file(doc+'_f1.txt')
         classifiers_array = prepare_data_for_plotting(thresholds, classifiers_f1)
-        bar_plot(doc+'_secBert', thresholds, classifiers_array, classifiers)
+        bar_plot(doc, thresholds, classifiers_array, classifiers)
 
 
 if __name__ == "__main__":
