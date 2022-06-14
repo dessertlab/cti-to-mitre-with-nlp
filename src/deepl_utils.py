@@ -35,6 +35,9 @@ class DLPreprocessingManager:
         X = pad_sequences(X, maxlen=MAX_SEQUENCE_LENGTH)
         return X
 
+    def get_tokenizer_vocab(self,):
+        return self.tokenizer.word_index
+
     def get_labels_encoding(self, labels):
         return self.label_encoder.transform(labels)
 
@@ -110,9 +113,19 @@ def lstm_model(num_outputs, MAX_NB_WORDS, EMBEDDING_DIM, MAX_SEQUENCE_LENGTH):
     print(nn_model.summary())
     return nn_model
 
+def pretrained_lstm_model(num_outputs, vocab, embedding_matrix, EMBEDDING_DIM, MAX_SEQUENCE_LENGTH):
+    nn_model = Sequential()
+    nn_model.add(Embedding(input_dim=len(vocab)+1, output_dim=EMBEDDING_DIM, weights=[embedding_matrix], input_length=MAX_SEQUENCE_LENGTH, trainable=False))
+    nn_model.add(LSTM(150, dropout=0.2, recurrent_dropout=0.2, input_shape=(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM)))
+    nn_model.add(Dense(num_outputs, activation='softmax'))
+    nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    print(nn_model.summary())
+    return nn_model
+
 class MODELS(enum.Enum):
     CNN = cnn_model
     LSTM = lstm_model
+    PRETRAINED_LSTM = pretrained_lstm_model
 
 class CNN_model_config:
 
@@ -134,3 +147,13 @@ class LSTM_model_config:
 
     def get_saving_path(self,):
         return 'lstm_model'
+
+class LSTM_pretrained_config:
+
+    def __init__(self, MAX_NB_WORDS = 10000, MAX_SEQUENCE_LENGTH = 20, EMBEDDING_DIM = 100):
+        self.MAX_NB_WORDS = MAX_NB_WORDS
+        self.MAX_SEQUENCE_LENGTH = MAX_SEQUENCE_LENGTH
+        self.EMBEDDING_DIM = EMBEDDING_DIM
+
+    def get_saving_path(self,):
+        return 'pretrained-lstm_model'

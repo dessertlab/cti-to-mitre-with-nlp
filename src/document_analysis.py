@@ -208,8 +208,10 @@ def analyze_all_doc(file_path, model_filenames, tecs_vec):
     models = []
     cnn = CNN_model_config()
     lstm = LSTM_model_config()
+    pre_lstm=LSTM_pretrained_config()
     models.append(cnn)
     models.append(lstm)
+    models.append(pre_lstm)
     for model in models:
         pp_manager = DLPreprocessingManager()
         path = model.get_saving_path()
@@ -353,7 +355,7 @@ wizardSpider_ref_7_output.write_to_file('.')
 wizardSpider_ref_2_results = analyze_all_doc(wizardSpider_files[1], 
                             ml_model_filenames,
                             wizardSpider_tec_2)
-wizardSpider_ref_2_output = CSVOutput('WizardSpider/WizardSpider_ref_2_prova', wizardSpider_ref_2_results)
+wizardSpider_ref_2_output = CSVOutput('WizardSpider/WizardSpider_ref_2', wizardSpider_ref_2_results)
 wizardSpider_ref_2_output.write_to_file('.')
 
 
