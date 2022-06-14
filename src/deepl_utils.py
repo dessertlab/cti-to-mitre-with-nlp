@@ -8,7 +8,17 @@ from sklearn.utils.multiclass import unique_labels
 from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import top_k_accuracy_score
 
+from scikeras.wrappers import KerasClassifier
+
+from keras.models import Sequential
+from keras.layers import Dense, Embedding, LSTM
+from scikeras.wrappers import KerasClassifier
+
+from keras.layers import Dense, GlobalMaxPooling1D
+from keras.layers import Conv1D, Embedding
+
 import pickle
+import enum
 
 class DLPreprocessingManager:
 
@@ -45,7 +55,7 @@ class DLPreprocessingManager:
 
 class Model_Manager:
     
-    def __init__(self, model):
+    def __init__(self, model = KerasClassifier()):
         self.model = model
     
     def save_model(self, path):
@@ -55,6 +65,7 @@ class Model_Manager:
     def load_model(self, path):
         filename = path+'/saved_model' + '.sav'
         self.model = pickle.load(open(filename, 'rb'))
+        return self.model
 
     def calculate_metrics(self,sentences_vec, labels_vec, labels):
         Y_pred = self.model.predict(sentences_vec)
@@ -71,9 +82,55 @@ class Model_Manager:
 
         return precision, recall, fscore, topk
 
+def cnn_model(num_outputs, MAX_NB_WORDS, EMBEDDING_DIM, MAX_SEQUENCE_LENGTH):
 
-# pp_manager = DLPreprocessingManager()
-# pp_manager.load_preprocessing_pipe('cmodel')
-# vects = pp_manager.get_features_vectors(['The malware is evil'])
-# label = pp_manager.get_labels_encoding(['T1059'])
-# print(str(vects)+str(label))
+    EMBEDDING_DIM = 100
+    MAX_NB_WORDS = 50000
+
+    embedding_layer = Embedding(MAX_NB_WORDS, EMBEDDING_DIM, input_length=MAX_SEQUENCE_LENGTH)
+    model = Sequential()
+    model.add(embedding_layer)
+    model.add(Conv1D(256,5,activation='relu'))
+    model.add(GlobalMaxPooling1D())
+    model.add(Dense(num_outputs, activation='softmax'))
+    model.compile(
+        loss='categorical_crossentropy',
+        optimizer='adam',
+        metrics=['accuracy']
+    )
+    print(model.summary())
+    return model 
+
+def lstm_model(num_outputs, MAX_NB_WORDS, EMBEDDING_DIM, MAX_SEQUENCE_LENGTH):
+    nn_model = Sequential()
+    nn_model.add(Embedding(MAX_NB_WORDS, EMBEDDING_DIM, input_length=MAX_SEQUENCE_LENGTH))
+    nn_model.add(LSTM(150, dropout=0.2, recurrent_dropout=0.2, input_shape=(MAX_SEQUENCE_LENGTH, EMBEDDING_DIM)))
+    nn_model.add(Dense(num_outputs, activation='softmax'))
+    nn_model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+    print(nn_model.summary())
+    return nn_model
+
+class MODELS(enum.Enum):
+    CNN = cnn_model
+    LSTM = lstm_model
+
+class CNN_model_config:
+
+    def __init__(self, EMBEDDING_DIM = 100, MAX_NB_WORDS = 50000, MAX_SEQUENCE_LENGTH =50):
+        self.MAX_NB_WORDS = MAX_NB_WORDS
+        self.MAX_SEQUENCE_LENGTH = MAX_SEQUENCE_LENGTH
+        self.EMBEDDING_DIM = EMBEDDING_DIM
+
+    def get_saving_path(self,):
+        return 'cnn_model'
+        
+
+class LSTM_model_config:
+
+    def __init__(self, EMBEDDING_DIM = 300, MAX_NB_WORDS = 50000, MAX_SEQUENCE_LENGTH = 20):
+        self.MAX_NB_WORDS = MAX_NB_WORDS
+        self.MAX_SEQUENCE_LENGTH = MAX_SEQUENCE_LENGTH
+        self.EMBEDDING_DIM = EMBEDDING_DIM
+
+    def get_saving_path(self,):
+        return 'lstm_model'
