@@ -17,6 +17,8 @@ from sklearn.metrics import precision_recall_fscore_support
 from sklearn.metrics import top_k_accuracy_score
 
 from utils.filter_data import *
+import pickle
+import os
 
 def lemmatize_set(dataset):
     lemmatizer = WordNetLemmatizer()
@@ -152,9 +154,14 @@ def train_classifier(classifier, name, X, Y):
     print("Results for" + name + "\n")
     print("Precision: " + str(precision) + " Recall: " + str(recall) + " F-Score: " + str(fscore) + " AC@3: " + str(topk) + "\n")
 
-    # # Uncomment save the model to disk
-    # filename = name + '.sav'
-    # pickle.dump((vectorizer, classifier), open(filename, 'wb'))
+    path = 'ml_models'
+    try:
+        os.mkdir(path)
+    except OSError as error:
+        print(error)   
+
+    filename = path + '/' + name + '.sav'
+    pickle.dump((vectorizer, classifier), open(filename, 'wb'))
 
 train_classifier(nn_clf, "MLP classifier ",  data_df.sentence, data_df.label_tec)
 train_classifier(logisticRegr, "Logreg",  data_df.sentence, data_df.label_tec)

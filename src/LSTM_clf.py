@@ -64,22 +64,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# #TODO: Uncomment for saving predictions
-# #Saving predictions
-# test_len = len(X_test_vec)
-# sentences = []
-# actual_labels = []
-# predicted_labels = []
-# for i in range(test_len):
-# # for i, x in np.nditer(X_test):
-#     arr = np.array([X_test_vec[i]])
-#     prediction = nn_model.predict(arr)
-#     predicted_label = encoder.inverse_transform([prediction[0]])
-#     predicted_labels.append(predicted_label[0])
-#     actual_labels.append(Y_test.iloc[i])
-#     sentences.append(X_test[i])
-#         # print(test_set_x.iloc[i])
-#         # print('Actual label:' + test_set_y.iloc[i])
-#         # print("Predicted label: " + predicted_label)
-    
