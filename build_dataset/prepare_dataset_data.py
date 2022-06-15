@@ -4,10 +4,8 @@ from stix2 import Filter
 from stix2 import parse
 
 from nltk.tokenize import sent_tokenize
-import pickle
 import pandas as pd
 import re
-import string
 
 
 #Takes a list of text and combines them into one large chunk of text.
@@ -43,7 +41,7 @@ def map_subtec_to_tec(id):
 	return id.split(".", 2)[0]
 
 def add_description_from_capec(capec_id):
-	capec_fs = FileSystemSource('./cti/capec/2.0')
+	capec_fs = FileSystemSource('../cti/capec/2.0')
 	capec_filters = [Filter('type', '=', 'attack-pattern'), Filter("description", "!=", ""), Filter("external_references.external_id", "=", capec_id)]
 	capec_attack_patterns = capec_fs.query(capec_filters)
 	descriptions = []
@@ -84,7 +82,7 @@ def main():
 	TACTIC = 'all'
 
 	src = MemoryStore()
-	src.load_from_file('./enterprise-attack/enterprise-attack-10.1.json')
+	src.load_from_file('../cti/enterprise-attack/enterprise-attack-10.1.json')
 
 
 
