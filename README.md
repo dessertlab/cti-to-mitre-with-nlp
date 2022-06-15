@@ -38,7 +38,7 @@ The diagram below provides the organization of the project:
 |      -- MenuPass
 |      -- WizardSpider
 ```
-To be able to correctly run all project' scripts, download the addtional files from (link) and unzip the archive into the main directory. You will find:
+To be able to correctly run all project' scripts, download the addtional files from https://figshare.com/articles/dataset/additional_files_zip/20076281  and unzip the archive into the main directory, extract the inner directories and delete the root. You will find:
 ```
 |-- cti
 |   -- capec
