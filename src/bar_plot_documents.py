@@ -63,7 +63,7 @@ def main():
                     'WizardSpider/WizardSpider_ref_7', 'WizardSpider/WizardSpider_ref_2']
     #documents = ['FIN6/FIN6_ref_1']
     for doc in documents:
-        classifiers, classifiers_f1 = read_f1s_from_file(doc+'_f1.txt')
+        classifiers, classifiers_f1 = read_f1s_from_file('apt_documents/'+doc+'_f1.txt')
         classifiers_array = prepare_data_for_plotting(thresholds, classifiers_f1)
         bar_plot(doc, thresholds, classifiers_array, classifiers)
 

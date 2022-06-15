@@ -16,17 +16,6 @@ from deepl_utils import *
 def repl(matchobj):
     return ","+ matchobj.group(1) + ","
 
-# TODO: Check the func cleaning before using it in this code
-def cleaning_data(text): 
-	#text = text.lower()							
-	text = re.sub('\(i.e.', '', text)
-	text = re.sub('\[(.*?)\]', repl, text)
-	text = re.sub('\(.*?\)', '', text)
-	text = re.sub('\)', '', text)
-	text = re.sub('\<\/?code\>', '', text)
-	text = text.strip()
-	return text
-
 def remove_empty_lines(text):
 	lines = text.split("\n")
 	non_empty_lines = [line for line in lines if line.strip() != ""]
@@ -65,12 +54,6 @@ def f_measure(recall, precision):
         return (2*precision*recall)/(precision+recall)
     else:
         return 0.01
-
-def print_k_likely_results(prob_v, sorted_index_v, class_name_v, k):
-    print("Top k classes are: \n")
-    for i in range(0,k):
-        inv = k - 1 - i
-        print(str(i+1) + "candidate is: " + class_name_v[inv] + " with a probability of " + str(prob_v[sorted_index_v[inv]]) + "\n")
 
 
 ml_model_filenames = ['ml_models/MLP_classifier.sav', 'ml_models/Logreg.sav', 'ml_models/Multinomial_NB.sav', 'ml_models/SVM_Classifier_OVR.sav']
@@ -159,7 +142,7 @@ def analyze_all_doc(file_path, model_filenames, tecs_vec):
                 precision = 0
             
             precision = round(precision,2)
-            print(precision) #accuracy or precision?
+            print(precision) 
 
             precisions.append(precision)
 
@@ -186,12 +169,6 @@ def analyze_all_doc(file_path, model_filenames, tecs_vec):
             f1s.append(f1)
 
             print("Threshold: " + str(threshold) + ": " + str(cou) + " correct on uniques")
-
-        # precisions = []
-        # recalls = []
-        # corrected_pred = []
-        # accepted_pred = []
-        # correct_on_uniques = []
 
         title = os.path.splitext(model_filename)[0]
         title = title.split('/')[1]
@@ -319,43 +296,43 @@ from document_data import *
 fin6_intel_results = analyze_all_doc(fin6_files[2], 
                             ml_model_filenames,
                             fin6_tecs_intel)
-fin6_intel_output = CSVOutput('FIN6/FIN6_intelligence_summary', fin6_intel_results)
+fin6_intel_output = CSVOutput('apt_documents/FIN6/FIN6_intelligence_summary', fin6_intel_results)
 fin6_intel_output.write_to_file('.')
 
 fin6_ref_1_results = analyze_all_doc(fin6_files[0], 
                             ml_model_filenames,
                             fin6_tec_1)
-fin6_ref_1_output = CSVOutput('FIN6/FIN6_ref_1', fin6_ref_1_results)
+fin6_ref_1_output = CSVOutput('apt_documents/FIN6/FIN6_ref_1', fin6_ref_1_results)
 fin6_ref_1_output.write_to_file('.')
 
 fin6_ref_2_results = analyze_all_doc(fin6_files[1], 
                             ml_model_filenames,
                             fin6_tec_2)
-fin6_ref_2_output = CSVOutput('FIN6/FIN6_ref_2', fin6_ref_2_results)
+fin6_ref_2_output = CSVOutput('apt_documents/FIN6/FIN6_ref_2', fin6_ref_2_results)
 fin6_ref_2_output.write_to_file('.')
 
 menuPass_ref_8_results = analyze_all_doc(menuPass_files[1], 
                             ml_model_filenames,
                             menuPass_tec_8)
-menuPass_ref_8_output = CSVOutput('MenuPass/MenuPass_ref_8', menuPass_ref_8_results)
+menuPass_ref_8_output = CSVOutput('apt_documents/MenuPass/MenuPass_ref_8', menuPass_ref_8_results)
 menuPass_ref_8_output.write_to_file('.')
 
 menuPass_ref_2_results = analyze_all_doc(menuPass_files[0], 
                             ml_model_filenames,
                             menuPass_tec_2)
-menuPass_ref_2_output = CSVOutput('MenuPass/MenuPass_ref_2', menuPass_ref_2_results)
+menuPass_ref_2_output = CSVOutput('apt_documents/MenuPass/MenuPass_ref_2', menuPass_ref_2_results)
 menuPass_ref_2_output.write_to_file('.')
 
 wizardSpider_ref_7_results = analyze_all_doc(wizardSpider_files[0], 
                             ml_model_filenames,
                             wizardSpider_tec_7)
-wizardSpider_ref_7_output = CSVOutput('WizardSpider/WizardSpider_ref_7', wizardSpider_ref_7_results)
+wizardSpider_ref_7_output = CSVOutput('apt_documents/WizardSpider/WizardSpider_ref_7', wizardSpider_ref_7_results)
 wizardSpider_ref_7_output.write_to_file('.')
 
 wizardSpider_ref_2_results = analyze_all_doc(wizardSpider_files[1], 
                             ml_model_filenames,
                             wizardSpider_tec_2)
-wizardSpider_ref_2_output = CSVOutput('WizardSpider/WizardSpider_ref_2', wizardSpider_ref_2_results)
+wizardSpider_ref_2_output = CSVOutput('apt_documents/WizardSpider/WizardSpider_ref_2', wizardSpider_ref_2_results)
 wizardSpider_ref_2_output.write_to_file('.')
 
 

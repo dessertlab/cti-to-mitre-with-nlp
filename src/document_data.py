@@ -89,14 +89,14 @@ wizardSpider_tec_7.extend(ryuk)
 
 # ------------------------------------
 
-fin6_files = ['FIN6/Follow The Money-Dissecting the Operations of the Cyber Crime Group FIN6[1].txt', 
-                'FIN6/Pick-Six-Intercepting a FIN6 Intrusion, an Actor Recently Tied to Ryuk and LockerGoga Ransomware[2].txt',
-                'FIN6/intelligence_summary.txt']
+fin6_files = ['apt_documents/FIN6/Follow The Money-Dissecting the Operations of the Cyber Crime Group FIN6[1].txt', 
+                'apt_documents/FIN6/Pick-Six-Intercepting a FIN6 Intrusion, an Actor Recently Tied to Ryuk and LockerGoga Ransomware[2].txt',
+                'apt_documents/FIN6/intelligence_summary.txt']
 
-menuPass_files = ['MenuPass/2018_12_20_united_states_v_zhu_hua_indictment[2].txt', 
-                'MenuPass/Japan-Linked Organizations Targeted in Long-Running and Sophisticated Attack Campaign[8].txt']
+menuPass_files = ['apt_documents/MenuPass/2018_12_20_united_states_v_zhu_hua_indictment[2].txt', 
+                'apt_documents/MenuPass/Japan-Linked Organizations Targeted in Long-Running and Sophisticated Attack Campaign[8].txt']
 
-wizardSpider_files = ['WizardSpider/Ryuk’s Return[7].txt',
-                     'WizardSpider/Ransomware Activity Targeting the Healthcare and Public Health Sector. Retrieved October 28, 2020[2].txt']
+wizardSpider_files = ['apt_documents/WizardSpider/Ryuk’s Return[7].txt',
+                     'apt_documents/WizardSpider/Ransomware Activity Targeting the Healthcare and Public Health Sector. Retrieved October 28, 2020[2].txt']
 
 # ------------------------------------
