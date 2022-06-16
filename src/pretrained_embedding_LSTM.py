@@ -32,7 +32,7 @@ def main():
     except OSError as error:
         print(error) 
 
-    model = Word2Vec.load("./model/1million.word2vec.model")
+    model = Word2Vec.load("../model/1million.word2vec.model")
 
     #Expand the model with new terms of our corpus - Incremental training
     stop_words = set(stopwords.words('english'))
