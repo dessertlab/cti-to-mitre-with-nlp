@@ -65,6 +65,7 @@ cd cti-to-mitre-with-nlp
 pip install -r requirements.txt
 ```
 ## Download the zip file 
+To be able to correctly run all project' scripts, download the addtional files from https://figshare.com/articles/dataset/additional_files_zip/20076281 and unzip the archive into the main directory, extract the inner directories and delete the root. See [Project Organization](#project-organization) details.
 
 
 ## Troubleshooting 
