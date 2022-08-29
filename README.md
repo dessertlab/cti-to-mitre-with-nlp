@@ -1,9 +1,24 @@
-# cti-to-mitre-with-nlp
-In this repo we provide a replication package for the paper "Automatic Mapping of Unstructured Cyber Threat Intelligence: An Experimental Study". 
+# CTI-to-MITRE with NLP
 
-In the paper, we present an experimental study on the automatic classification of unstructured CTI into attack techniques using machine learning (ML). We contribute with two new datasets for CTI analysis, and we evaluate several ML models, including both traditional and deep learning-based ones. We present several lessons learned about how ML can perform at this task, which classifiers perform best and under which conditions, which are the main causes of classification errors, and the challenges ahead for CTI analysis.
+This repo provides a replication package for the paper **"Automatic Mapping of Unstructured Cyber Threat Intelligence: An Experimental Study"**. The paper has been accepted for publication at the IEEE International Symposium on Software Reliability Engineering (ISSRE) 2022. The paper is also available on [arXiv](https://arxiv.org/abs/2208.12144).
+
+In the paper, we present an experimental study on the automatic classification of unstructured Cyber Threat Intelligence (CTI) into attack techniques of the [MITRE ATT&CK](https://attack.mitre.org/), using machine learning (ML). We contribute with two new datasets for CTI analysis, and we evaluate several ML models, including both traditional and deep learning-based ones. We present several lessons learned about how ML can perform at this task, which classifiers perform best and under which conditions, which are the main causes of classification errors, and the challenges ahead for CTI analysis.
 
 The project includes scripts and data to repeat the training/testing experiments on classification models presented in the paper.
+
+# Citation
+
+If you use these data or code in scientific work, please cite our paper as follows:
+
+```
+@inproceedings{CTI-to-MITRE,
+  author={Vittorio Orbinato and Mariarosaria Barbaraci and Roberto Natella and Domenico Cotroneo},
+  title={Automatic Mapping of Unstructured {Cyber Threat Intelligence}: An Experimental Study},
+  booktitle={Proceedings of the 33rd IEEE International Symposium on Software Reliability Engineering (ISSRE)},
+  year={2022},
+}
+```
+
 
 # Project Organization
 
